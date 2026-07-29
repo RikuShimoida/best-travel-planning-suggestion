@@ -94,6 +94,10 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Behind a proxy/load balancer (e.g. Cloud Run), trust the forwarded client
+  // IP so per-IP rate limiting keys on the real client, not the proxy address.
+  app.set('trust proxy', true);
+
   // Limit request body size to blunt oversized-payload abuse.
   app.use(express.json({ limit: '64kb' }));
   app.use(securityHeaders);
