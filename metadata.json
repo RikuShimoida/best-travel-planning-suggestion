@@ -1,0 +1,6 @@
+{
+  "name": "旅行プラン検索・作成",
+  "description": "理想の旅行プランを検索・生成・カスタマイズできるAI旅程プラットフォーム。Gmailの旅行メール（じゃらん・楽天トラベル・Expedia等）を統合解析し、オールインクルーシブ宿（TAOYA等）の最安値プランをAIが自動比較します。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

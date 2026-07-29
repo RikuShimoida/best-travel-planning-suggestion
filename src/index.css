@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #F8F5F2;
+    color: #2D2D2D;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, .font-serif, .serif {
+    font-family: 'Playfair Display', 'Shippori Mincho', Georgia, serif;
+  }
+}
+
+.bg-paper {
+  background-color: #F8F5F2;
+}
+
+.bg-paper-dark {
+  background-color: #EFECE6;
+}
+
+.bg-ink {
+  background-color: #2D2D2D;
+}
+
+.text-ink {
+  color: #2D2D2D;
+}
+
+.border-ink {
+  border-color: #2D2D2D;
+}
+
+.border-paper {
+  border-color: #E5E1D8;
+}
+
+/* Custom scrollbar for editorial feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D2D2D;
+  border-radius: 0px;
+}
