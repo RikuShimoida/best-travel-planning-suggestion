@@ -33,8 +33,21 @@ interface GmailTravelAnalyzerProps {
   onGenerateItinerary: (query: string) => void;
 }
 
+// Only allow http(s) URLs so that untrusted values (e.g. AI/email-derived
+// `directBookingUrl`) can never inject javascript:/data: URIs into an href.
+const safeHttpUrl = (url?: string): string | null => {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url, window.location.origin);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:' ? parsed.href : null;
+  } catch {
+    return null;
+  }
+};
+
 const getPlatformUrl = (platform: string, hotelName: string, directUrl?: string): string => {
-  if (directUrl) return directUrl;
+  const safeDirect = safeHttpUrl(directUrl);
+  if (safeDirect) return safeDirect;
 
   const cleanHotelName = hotelName
     .replace(/\(.*\)/g, '')
